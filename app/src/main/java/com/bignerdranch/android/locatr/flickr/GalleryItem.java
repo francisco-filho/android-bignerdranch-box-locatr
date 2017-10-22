@@ -11,6 +11,8 @@ public class GalleryItem {
     private String mId;
     private String mUrl;
     private String mOwner;
+    private double mLat;
+    private double mLog;
 
     public GalleryItem(String caption, String id) {
         mCaption = caption;
@@ -23,6 +25,22 @@ public class GalleryItem {
                 .appendPath(mOwner)
                 .appendPath(mId)
                 .build();
+    }
+
+    public double getLat() {
+        return mLat;
+    }
+
+    public void setLat(double lat) {
+        mLat = lat;
+    }
+
+    public double getLog() {
+        return mLog;
+    }
+
+    public void setLog(double log) {
+        mLog = log;
     }
 
     public String getOwner() {

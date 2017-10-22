@@ -59,9 +59,9 @@ public class FlickFetchr {
 
     public String buildUrl(Location location){
         return ENDPOINT.buildUpon()
-                .appendQueryParameter("method",FETCH_RECENTS_METHOD)
+                .appendQueryParameter("method",SEARCH_METHOD)
                 .appendQueryParameter("lat", ("" + location.getLatitude()).replace(",","."))
-                .appendQueryParameter("log", ("" + location.getLongitude()).replace(",","."))
+                .appendQueryParameter("lon", ("" + location.getLongitude()).replace(",","."))
                 .build().toString();
     }
 
@@ -96,6 +96,8 @@ public class FlickFetchr {
             }
             galleryItem.setUrl(jsonObject.getString("url_s"));
             galleryItem.setOwner(jsonObject.getString("owner"));
+            galleryItem.setLat(jsonObject.getDouble("latitude"));
+            galleryItem.setLog(jsonObject.getDouble("longitude"));
             items.add(galleryItem);
         }
     }
